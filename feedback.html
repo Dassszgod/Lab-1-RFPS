@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна сторінка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-right: auto;
+            margin-left: auto;
+            font-family: "DM Sans", sans-serif;    
+        }
+        header {
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid gray;
+        }
+        header img {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+        }
+        header a {
+            display: flex;
+            flex-direction: row;
+        }
+        header ol {
+            font-size: 20px;
+            margin-top: 30px;
+            list-style: none;
+            gap: 20px;
+            display: flex;
+            flex-direction: row;
+        }
+        .hero {
+            width: 1000px;
+            display: flex;
+            flex-direction: column;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        footer { 
+            margin-top: 110px;
+            border-top: 1px solid gray; 
+            text-align:center; 
+            color:gray; 
+        }
+        fieldset {
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        legend {
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            border: 1px solid gray;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: none;
+            height: 120px;
+            max-width: 100%;
+            max-height: 150px;
+        }
+        .agreement {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+        .agreement input {
+            margin-right: 8px;
+        }
+        .buttons {
+            text-align: right;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+    <body>
+        <header>
+            <a href="./index.html">
+                <img src="./assets/logo.png" alt="лого"/>
+                <h1>Service.ua</h1>
+            </a>
+            <nav>
+                <ol>
+                    <li><a href="./services.html">Каталог сервісів</a></li>
+                    <li><a href="./feedback.html">Зворотній зв'язок</a></li>
+                    <li><a href="">Відгуки про сервіси</a></li>
+                </ol>
+            </nav>
+        </header>
+
+        <main class="hero">
+            <h2>Форма зворотнього зв’язку</h2>
+            <form>
+                <fieldset>
+                    <legend>Персональна інформація</legend>
+
+                    <label for="fullname">Прізвище та ім'я: </label>
+                    <input type="text" id="fullname" name="fullname" required/>
+
+                    <label for="email">Електронна пошта: </label>
+                    <input type="email" id="email" name="email" required/>
+
+                    <label for="age">Вік: </label>
+                    <input type="number" id="age" name="age" min="1" max="100" required/>
+              
+                </fieldset>
+
+                <label for="purpose">Мета зворотнього зв'язку: </label>
+                <select id="purpose" name="purpose">
+                    <option>Співпраця</option>
+                    <option>Скарга на неякісний пошив</option>
+                    <option>Пропозиція</option>
+                    <option>Наявність помилки</option>
+                </select>
+
+                <label for="details">Детально: </label>
+                <textarea id="details" name="details" maxlength="500" placeholder="Введіть ваш текст"></textarea>
+
+                <div class="agreement">
+                    <input type="checkbox" id="agree" name="agree" required/>
+                    <label for="agree" >Погоджуюсь на обробку персональних даних</label>
+                </div>
+                     
+                <div class="buttons">
+                    <button type="reset">Очистити</button>
+                    <button type="submit">Надіслати</button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p><a href="https://yurotdel.com.ua/dogovir/zrazok_publichnoho_dohovoru_oferty">Service.ua — всі права захищені.</a></p>
+        </footer>
+    </body>
+</html>
