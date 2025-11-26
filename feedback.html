@@ -99,6 +99,47 @@
             padding: 10px 20px;
             margin-left: 10px;
         }
+
+        
+        #details {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .details-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .tooltip {
+            position: absolute;
+            top: 10px;
+            left: 102%;
+            width: 260px;
+            background-color: #fffbe6;
+            color: #444;
+            border: 1px solid #d4c55c;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            font-size: 0.9rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .details-container:hover #details {
+            background-color: #fef9e7;
+            border-color: #f1c40f;
+            box-shadow: 0 0 10px rgba(241, 196, 15, 0.6);
+        }
+
+        .details-container:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
     </style>
 </head>
     <body>
@@ -144,7 +185,14 @@
                 </select>
 
                 <label for="details">Детально: </label>
-                <textarea id="details" name="details" maxlength="500" placeholder="Введіть ваш текст"></textarea>
+                <div class="details-container">
+                    <textarea id="details" name="details" maxlength="500" placeholder="Введіть ваш текст"></textarea>
+                    <div class="tooltip">
+                        Дякуючи Вам, ми стаємо кращі!<br>
+                        Конкретизуйте мету звернення, будь ласка.
+                    </div>
+                </div>
+
 
                 <div class="agreement">
                     <input type="checkbox" id="agree" name="agree" required/>

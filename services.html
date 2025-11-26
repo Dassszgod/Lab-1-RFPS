@@ -17,9 +17,31 @@
         </a>
         <nav>
             <ol>
-                <li><a href="./services.html">Каталог сервісів</a></li>
-                <li><a href="./feedback.html">Зворотній зв'язок</a></li>
-                <li><a href="">Відгуки про сервіси</a></li>
+                <li class="menu-item">
+                    <a href="./services.html">Каталог сервісів</a>
+                    <ul class="submenu">
+                        <li><a href="#sewing">Пошиття одягу</a></li>
+                        <li><a href="#car-repair">Ремонт авто</a></li>
+                        <li><a href="#tech-repair">Ремонт оргтехніки</a></li>
+                        <li><a href="#crafts">Виготовлення виробів</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="./feedback.html">Зворотній зв'язок</a>
+                    <ul class="submenu">
+                        <li><a href="./feedback.html">Заповнити форму</a></li>
+                        <li><a href="#support">Підтримка</a></li>
+                        <li><a href="#faq">Питання / Відповіді</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="">Відгуки про сервіси</a>
+                    <ul class="submenu">
+                        <li><a href="#latest">Останні відгуки</a></li>
+                        <li><a href="#top">Найкращі сервіси</a></li>
+                        <li><a href="#add">Додати відгук</a></li>
+                    </ul>
+                </li>
             </ol>
         </nav>
     </header>
@@ -29,7 +51,17 @@
 
         <section class="services">
             <article class="service-card">
-                <img src="./assets/cloth.jpg" alt="Пошиття одягу">
+                <div class="flip-container">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="./assets/cloth.jpg" alt="Пошиття одягу">
+                        </div>
+                        <div class="flip-back">
+                            <p><b>Умови:</b> прання виробу лише при температурі до 40°C, ручне віджимання, без відбілювачів.</p>
+                        </div>
+                    </div>
+                </div>
+
                 <h3>Пошиття одягу</h3>
                 <ul>
                     <li>Індивідуальний дизайн</li>
@@ -41,7 +73,17 @@
             </article>
 
             <article class="service-card">
-                <img src="./assets/car.jpg" alt="Ремонт авто">
+                <div class="flip-container">
+                    <div class="flip-inner">
+                    <div class="flip-front">
+                        <img src="./assets/car.jpg" alt="Ремонт авто">
+                    </div>
+                    <div class="flip-back">
+                        <p><b>Уточнення:</b> ремонтуємо автомобілі будь якого типу</p>
+                    </div>
+                    </div>
+                </div>
+
                 <h3>Ремонт авто</h3>
                 <ul>
                     <li>Ремонт двигуна</li>
@@ -53,7 +95,17 @@
             </article>
 
             <article class="service-card">
-                <img src="./assets/tech.jpg" alt="Ремонт оргтехніки">
+                <div class="flip-container">
+                    <div class="flip-inner">
+                    <div class="flip-front">
+                        <img src="./assets/tech.jpg" alt="Ремонт оргтехніки">
+                    </div>
+                    <div class="flip-back">
+                        <p><b>Уточнення:</b> ремонтуємо та обслуговуємо офісну техніку будь-яких типів</p>
+                    </div>
+                    </div>
+                </div>
+
                 <h3>Ремонт оргтехніки</h3>
                 <ul>
                     <li>Ремонт принтерів</li>
@@ -65,7 +117,17 @@
             </article>
 
             <article class="service-card">
-                <img src="./assets/mebli.jpg" alt="Виготовлення виробів">
+                <div class="flip-container">
+                    <div class="flip-inner">
+                    <div class="flip-front">
+                        <img src="./assets/mebli.jpg" alt="Виготовлення виробів">
+                    </div>
+                    <div class="flip-back">
+                        <p><b>Уточнення:</b> виготовляємо меблі та сувеніри будь-якої складності</p>
+                    </div>
+                    </div>
+                </div>
+
                 <h3>Виготовлення виробів</h3>
                 <ul>
                     <li>Меблі на замовлення</li>
@@ -83,5 +145,24 @@
     <footer>
         <p><a href="https://yurotdel.com.ua/dogovir/zrazok_publichnoho_dohovoru_oferty">Service.ua — всі права захищені.</a></p>
     </footer>
+    <script>
+        document.querySelectorAll('.menu-item > a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); 
+                const parent = link.parentElement;
+                parent.classList.toggle('open');
+
+                document.querySelectorAll('.menu-item').forEach(item => {
+                    if (item !== parent) item.classList.remove('open');
+                });
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.menu-item')) {
+                document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('open'));
+            }
+        });
+    </script>
 </body>
 </html>

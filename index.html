@@ -24,6 +24,12 @@
         </nav>
     </header>
 
+    <div class="floating-items"> 
+        <img src="./assets/scissors.png" alt="ножиці" class="floating-item"> 
+        <img src="./assets/scissors1.png" alt="ножиці" class="floating-item"> 
+        <img src="./assets/needle.png" alt="голка" class="floating-item"> 
+    </div>
+
     <main class="hero"> 
         <section id="goal-section">
             <h2>🎯 Мета створення сайту</h2>
@@ -85,5 +91,26 @@
     <footer>
         <p><a href="https://yurotdel.com.ua/dogovir/zrazok_publichnoho_dohovoru_oferty">Service.ua — всі права захищені.</a></p>
     </footer>
+
+<script>
+    const items = document.querySelectorAll('.floating-item');
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    items.forEach(item => {
+        const random = Math.random() * (1.4 - 1.0) + 1.0;
+        item.style.height = `${(5 * random)}rem`;
+        moveRandomly(item);
+        item.style.animationDelay = `${Math.random() * 5}s`;
+    });
+
+    function moveRandomly(el) {
+        const x = Math.random() * (screenWidth - 100);
+        const y = Math.random() * (screenHeight - 100);
+        el.style.left = `${x}px`;
+        el.style.top = `${y}px`;
+        setTimeout(() => moveRandomly(el), 10000);
+    }
+</script>
 </body>
 </html>
